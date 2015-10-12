@@ -1,23 +1,3 @@
-<html>
-<head>
-	<title>Ejemplos de ABM - con archivo de texto</title>
-	  
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="icon" href="http://www.octavio.com.ar/favicon.ico">
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/estilo.css">
-		<link rel="stylesheet" type="text/css" href="css/animacion.css">
-		<!--final de Estilos-->
-		
-		
-</head>
-<body>
-		<?php
-		
-		require_once"partes/barraDeMenu.php";
-
-	 ?>
 <?php     
 	require_once("clases\Personas.php");
 
@@ -30,35 +10,34 @@
 ?>
 	<div class="container">
 		<div class="page-header">
-			<center> <h1>Datos</h1>   </center>     
+			<center> <h1>Datos</h1> </center>     
 		</div>
 		<div class="CajaInicio animated bounceInRight">
 			<h1> <?php echo $titulo; ?> </h1>
 
-			<form id="FormIngreso" method="post" action="formAlta.php" enctype="multipart/form-data" >
-				<input type="text" name="apellido" id="apellido" placeholder="ingrese apellido" value="<?php echo isset($unaPersona) ?  $unaPersona->GetApellido() : "" ; ?>" /><span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" value="<?php echo isset($unaPersona) ?  $unaPersona->GetNombre() : "" ; ?>" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<input type="text" name="dni" id="dni" placeholder="ingrese dni" value="<?php echo isset($unaPersona) ?  $unaPersona->GetDni() : "" ; ?>" <?php echo isset($unaPersona) ?  "readonly": "" ; ?>        /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
-				<?php echo isset($unaPersona) ? 	"<p style='color: black;'>*El DNI no se puede modificar.</p> ": "" ; ?>
-				<input type="hidden" name="idOculto" value="<?php echo isset($unaPersona) ? $unaPersona->GetId() : "" ; ?>" />
-				<input type="file" name="foto" />
+			<form id="FormIngreso" onsubmit="GuardarPersona();return false" enctype="multipart/form-data" >
+				<input type="text" name="apellido" id="apellido" placeholder="ingrese apellido" /><span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+				<input type="text" name="nombre" id="nombre" placeholder="ingrese nombre" /> <span id="lblNombre" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
+				<input type="text" name="dni" id="dni" placeholder="ingrese dni" /> <span id="lblDni" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span><p style='color: black;'>*El DNI no se puede modificar.</p>
+				<input type="hidden" name="idOculto" id="idOculto"/>
+				<input type="file" name="foto" id="foto"/>
+				<input type="hidden" id="hdnAgregar" name="agregar" />
 
 
-				<img  src="fotos/<?php echo isset($unaPersona) ? $unaPersona->GetFoto() : "pordefecto.png" ; ?>" class="fotoform"/>
+				<img  src="fotos/pordefecto.png" class="fotoform"/>
 				<p style="  color: black;">*La foto se actualiza al guardar.</p>
 
+				<input type="submit" class="btn btn-info " name="guardar" onclick="return Validar()" class="glyphicon glyphicon-save"/>
 
-				<a class="btn btn-info " name="guardar" onclick="Validar()" ><span class="glyphicon glyphicon-save">&nbsp;</span>Guardar</a>
 
-
-				<input type="hidden" value="" id="hdnAgregar" name="agregar" />
-				</div>
-
+				
+				
 			</form>
+		</div>
 		
 <?php 
 
-if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se cumple ingreso por primera vez.
+/*if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se cumple ingreso por primera vez.
 {
 
 
@@ -157,9 +136,6 @@ if(isset($_POST['agregar']) && $_POST['agregar'] === "Guardar")// si esto no se 
 		persona::InsertarPersona($PersonaNueva);
 
 	}	
-}
+}*/
 ?>
-		</div>
-	</div>
-</body>
-</html>
+</div>

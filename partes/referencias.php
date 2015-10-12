@@ -7,4 +7,5 @@
 	<script type="text/javascript" src="js/ValidacionjavaScript.js"></script>
 	<script SRC="js/controlGrilla.js" TYPE="text/javascript"></script>
 	<script type="text/javascript" src="js/funcionesAjax.js"></script>
+	<script type="text/javascript" src="js/funcionesABM.js"></script>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>

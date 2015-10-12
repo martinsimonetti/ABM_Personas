@@ -30,9 +30,10 @@
 			}
 
 			if(envio){
-				document.getElementById("hdnAgregar").value="Guardar";
-				document.getElementById("FormIngreso").submit();
+				document.getElementById('hdnAgregar').value = "Guardar";				
 			}
+
+			return envio;
 		}
 		function ValidarCadena(cad)
 		{

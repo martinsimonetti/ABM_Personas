@@ -1,6 +1,6 @@
 <?php 
 	//require_once("clases/AccesoDatos.php");
-	//require_once("clases/voto.php");
+	require_once("clases/Personas.php");
 
 	$queHago=$_POST['queHacer'];
 	switch ($queHago) {
@@ -12,6 +12,16 @@
 			break;
 		case 'Menu':
 			include("partes/menuPrincipal.php");
+			break;
+		case 'GuardarPersona':
+			$persona = new Persona();
+			$persona->SetId($_POST['id']);
+			$persona->SetApellido($_POST['apellido']);
+			$persona->SetNombre($_POST['nombre']);
+			$persona->SetDni($_POST['dni']);
+			$persona->SetFoto($_POST['foto']);
+			$cantidad = Persona::GuardarPersona($persona);		
+			echo $cantidad;
 			break;
 
 		default:

@@ -79,6 +79,16 @@ class Persona
 
 //--------------------------------------------------------------------------------//
 //--METODO DE CLASE
+	public static function GuardarPersona($persona)
+	 {
+	 	if($persona->id>0)
+ 		{
+ 			$persona->ModificarPersona($persona);
+ 		}else {
+ 			$persona->InsertarPersona($persona);
+ 		}
+	 }
+
 	public static function TraerUnaPersona($idParametro) 
 	{	
 
