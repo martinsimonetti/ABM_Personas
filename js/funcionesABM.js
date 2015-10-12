@@ -32,3 +32,22 @@ function GuardarPersona()
 		alert(retorno);
 	});
 }
+
+function BorrarPersona(idParametro)
+{
+	//alert(idParametro);
+		var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"BorrarPersona",
+			id:idParametro	
+		}
+	});
+	funcionAjax.done(function(retorno){
+		Mostrar("Grilla");		
+	});
+	funcionAjax.fail(function(retorno){	
+		alert(retorno);	
+	});	
+}

@@ -1,5 +1,4 @@
 <?php 
-	//require_once("clases/AccesoDatos.php");
 	require_once("clases/Personas.php");
 
 	$queHago=$_POST['queHacer'];
@@ -23,7 +22,11 @@
 			$cantidad = Persona::GuardarPersona($persona);		
 			echo $cantidad;
 			break;
-
+		case 'BorrarPersona':
+			$id=$_POST['id'];
+			$cantidad= Persona::BorrarPersona($id);
+			echo $cantidad;
+			break;
 		default:
 			# code...
 			break;
