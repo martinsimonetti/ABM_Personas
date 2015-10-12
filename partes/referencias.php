@@ -4,3 +4,7 @@
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="css/animacion.css">
+	<script type="text/javascript" src="js/ValidacionjavaScript.js"></script>
+	<script SRC="js/controlGrilla.js" TYPE="text/javascript"></script>
+	<script type="text/javascript" src="js/funcionesAjax.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>

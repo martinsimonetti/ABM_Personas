@@ -10,9 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/animacion.css">
 		<!--final de Estilos-->
 		
-		<script type="text/javascript" src="js/ValidacionjavaScript.js">
-	
-        </script>
+		
 </head>
 <body>
 		<?php

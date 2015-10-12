@@ -8,7 +8,7 @@
 		<?php require_once"partes/referencias.php" ;?>
 		<!--final de Estilos-->
 
-        <script SRC="js/controlGrilla.js" TYPE="text/javascript"></script>
+        
         <!--final logica de programación-->
 </head>
 <body>
