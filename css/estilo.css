@@ -123,7 +123,7 @@ left:0px;
   padding:6% 4%;
 }
 
-input[type="text"],input[type="file"]{
+input[type="text"],input[type="file"],input[type="email"]{
   width:92%;
   background:#fff;
   margin-bottom:2%;

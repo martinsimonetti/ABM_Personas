@@ -1,6 +1,8 @@
 <?php     
-	require_once("clases\Personas.php");
+	require_once("clases\Personas.php"); 
 
+	session_start();
+	if(isset($_SESSION['registrado'])){
 ?>
 	<div class="container">
 		<div class="page-header">
@@ -102,31 +104,8 @@
     		}			
 		}
 	}
-
-
-
-
-
-
-	if($_POST['idOculto'] != "")//paso por grilla y luego guardo
-	{
-		$PersonaBuscada = Persona::TraerUnaPersona($_POST['idOculto']);
-		$PersonaBuscada->SetFoto($foto);
-		$PersonaBuscada->SetApellido($_POST['apellido']);
-		$PersonaBuscada->SetNombre($_POST['nombre']);
-		//$PersonaBuscada->SetDni($_POST['dni']);		
-		$retorno = Persona::ModificarPersona($PersonaBuscada);
-	}
-	else// si es un alta
-	{
-		$PersonaNueva = new Persona();	
-		$PersonaNueva->SetFoto($foto);
-		$PersonaNueva->SetApellido($_POST['apellido']);
-		$PersonaNueva->SetNombre($_POST['nombre']);
-		$PersonaNueva->SetDni($_POST['dni']);
-		persona::InsertarPersona($PersonaNueva);
-
-	}	
 }*/
 ?>
 </div>
+
+<?php }else{    echo"<h3>usted no esta logeado. </h3>"; }?>

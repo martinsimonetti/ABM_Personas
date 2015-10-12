@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<?php		
-		require_once"partes/barraDeMenu.php";
+		 require_once"partes/barraDeMenu.php";
 		?>
 		<div class="container">
 
@@ -17,8 +17,15 @@
 			</div>
 
 			<div id="principal">
-				<?php
-					include_once("partes/menuPrincipal.php");
+				<?php 
+					if(!isset($_SESSION['registrado']))
+					{
+						include_once("partes/formLogin.php");
+					}
+					else
+					{
+						include_once("partes/menuPrincipal.php");
+					}
 				?>
 			</div>
 

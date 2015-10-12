@@ -2,6 +2,8 @@
 	require_once('clases/Personas.php');
 
 	$mensaje = "Bienvenido.";
+	session_start();
+	if(isset($_SESSION['registrado'])){
 ?>	
 	<div class="container">
 		<div class="page-header">
@@ -14,5 +16,4 @@
 	 			?>
 		</div>
 	</div>
-</body>
-</html>
+<?php }else{    echo"<h3>usted no esta logeado. </h3>"; }?>

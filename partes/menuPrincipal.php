@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if(isset($_SESSION['registrado'])){
+?>
+
 <div class="CajaInicio animated bounceInRight">
 	<h1>PERSONAS</h1>
 
@@ -11,3 +16,5 @@
 		</a>
 	</form>
 </div>
+
+<?php }else{    echo"<h3>usted no esta logeado. </h3>"; }?>

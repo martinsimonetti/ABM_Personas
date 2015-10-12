@@ -12,6 +12,15 @@
 		case 'Menu':
 			include("partes/menuPrincipal.php");
 			break;
+		case 'GuardarLogin':
+			include("partes/GuardarUsuario.php");
+			break;
+		case 'Desloguearse':
+			include("partes/desloguearUsuario.php");
+			break;
+		case 'Login':
+			include("partes/formLogin.php");
+			break;
 		case 'TraerPersona':
 			$persona = Persona::TraerUnaPersona($_POST['id']);
 			//echo $persona;
