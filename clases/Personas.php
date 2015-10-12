@@ -4,57 +4,14 @@ class Persona
 {
 //--------------------------------------------------------------------------------//
 //--ATRIBUTOS
-	private $id;
-	private $nombre;
- 	private $apellido;
-  	private $dni;
-  	private $foto;
+	public $id;
+	public $nombre;
+ 	public $apellido;
+  	public $dni;
+  	public $foto;
 
 //--------------------------------------------------------------------------------//
 
-//--------------------------------------------------------------------------------//
-//--GETTERS Y SETTERS
-  	public function GetId()
-	{
-		return $this->id;
-	}
-	public function GetApellido()
-	{
-		return $this->apellido;
-	}
-	public function GetNombre()
-	{
-		return $this->nombre;
-	}
-	public function GetDni()
-	{
-		return $this->dni;
-	}
-	public function GetFoto()
-	{
-		return $this->foto;
-	}
-
-	public function SetId($valor)
-	{
-		$this->id = $valor;
-	}
-	public function SetApellido($valor)
-	{
-		$this->apellido = $valor;
-	}
-	public function SetNombre($valor)
-	{
-		$this->nombre = $valor;
-	}
-	public function SetDni($valor)
-	{
-		$this->dni = $valor;
-	}
-	public function SetFoto($valor)
-	{
-		$this->foto = $valor;
-	}
 //--------------------------------------------------------------------------------//
 //--CONSTRUCTOR
 	public function __construct($dni=NULL)
@@ -91,14 +48,12 @@ class Persona
 
 	public static function TraerUnaPersona($idParametro) 
 	{	
-
-
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		//$consulta =$objetoAccesoDato->RetornarConsulta("select * from persona where id =:id");
 		$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerUnaPersona(:id)");
 		$consulta->bindValue(':id', $idParametro, PDO::PARAM_INT);
 		$consulta->execute();
-		$personaBuscada= $consulta->fetchObject('persona');
+		$personaBuscada= $consulta->fetchObject('Persona');
 		return $personaBuscada;	
 					
 	}
@@ -109,7 +64,7 @@ class Persona
 		//$consulta =$objetoAccesoDato->RetornarConsulta("select * from persona");
 		$consulta =$objetoAccesoDato->RetornarConsulta("CALL TraerTodasLasPersonas() ");
 		$consulta->execute();			
-		$arrPersonas= $consulta->fetchAll(PDO::FETCH_CLASS, "persona");	
+		$arrPersonas= $consulta->fetchAll(PDO::FETCH_CLASS, "Persona");	
 		return $arrPersonas;
 	}
 	

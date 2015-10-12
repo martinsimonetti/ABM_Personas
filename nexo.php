@@ -12,13 +12,18 @@
 		case 'Menu':
 			include("partes/menuPrincipal.php");
 			break;
+		case 'TraerPersona':
+			$persona = Persona::TraerUnaPersona($_POST['id']);
+			//echo $persona;
+			echo json_encode($persona);
+			break;
 		case 'GuardarPersona':
 			$persona = new Persona();
-			$persona->SetId($_POST['id']);
-			$persona->SetApellido($_POST['apellido']);
-			$persona->SetNombre($_POST['nombre']);
-			$persona->SetDni($_POST['dni']);
-			$persona->SetFoto($_POST['foto']);
+			$persona->id = $_POST['id'];
+			$persona->apellido = $_POST['apellido'];
+			$persona->nombre = $_POST['nombre'];
+			$persona->dni = $_POST['dni'];
+			$persona->foto = $_POST['foto'];
 			$cantidad = Persona::GuardarPersona($persona);		
 			echo $cantidad;
 			break;

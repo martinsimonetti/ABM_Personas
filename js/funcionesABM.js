@@ -1,6 +1,6 @@
 function GuardarPersona()
 {
-		alert("Guardar");
+		//alert("Guardar");
 		var id=$("#idOculto").val();
 		//alert(id);
 		var apellido=$("#apellido").val();
@@ -50,4 +50,36 @@ function BorrarPersona(idParametro)
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);	
 	});	
+}
+
+function EditarPersona(idParametro)
+{	
+	//alert(idParametro);
+	Mostrar('Alta');
+	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"TraerPersona",
+			id:idParametro
+		}
+	});
+	funcionAjax.done(function(retorno){
+		//alert(retorno);
+		var persona =JSON.parse(retorno);
+		$('#idOculto').val(persona.id);
+		//alert(persona.id);
+		$('#apellido').val(persona.apellido);
+		//alert(persona.apellido);
+		$('#nombre').val(persona.nombre);
+		//alert(persona.nombre);
+		$('#dni').val(persona.dni);
+		//alert(persona.dni);	
+		$('#foto').val(persona.foto);
+		//alert(persona.foto);
+		$('#titulo').text("MODIFICACIÓN");
+	});
+	funcionAjax.fail(function(retorno){	
+		alert(retorno);
+	});
 }

@@ -1,19 +1,13 @@
 <?php     
 	require_once("clases\Personas.php");
 
-	$titulo = "ALTA";
-	if(isset($_POST['idParaModificar'])) //viene de la grilla
-	{
-		$unaPersona = Persona::TraerUnaPersona($_POST['idParaModificar']);
-		$titulo = "MODIFICACIÓN";
-	} 
 ?>
 	<div class="container">
 		<div class="page-header">
 			<center> <h1>Datos</h1> </center>     
 		</div>
 		<div class="CajaInicio animated bounceInRight">
-			<h1> <?php echo $titulo; ?> </h1>
+			<h1 id="titulo">ALTA</h1>
 
 			<form id="FormIngreso" onsubmit="GuardarPersona();return false" enctype="multipart/form-data" >
 				<input type="text" name="apellido" id="apellido" placeholder="ingrese apellido" /><span id="lblApellido" style="display:none;color:#FF0000;width:1%;float:right;font-size:80">*</span>
@@ -28,9 +22,6 @@
 				<p style="  color: black;">*La foto se actualiza al guardar.</p>
 
 				<input type="submit" class="btn btn-info " name="guardar" onclick="return Validar()" class="glyphicon glyphicon-save"/>
-
-
-				
 				
 			</form>
 		</div>
