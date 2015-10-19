@@ -13,7 +13,7 @@
 			include("partes/menuPrincipal.php");
 			break;
 		case 'GuardarLogin':
-			include("partes/GuardarUsuario.php");
+			include("partes/guardarUsuario.php");
 			break;
 		case 'Desloguearse':
 			include("partes/desloguearUsuario.php");
@@ -27,13 +27,7 @@
 			echo json_encode($persona);
 			break;
 		case 'GuardarPersona':
-			$persona = new Persona();
-			$persona->id = $_POST['id'];
-			$persona->apellido = $_POST['apellido'];
-			$persona->nombre = $_POST['nombre'];
-			$persona->dni = $_POST['dni'];
-			$persona->foto = $_POST['foto'];
-			$cantidad = Persona::GuardarPersona($persona);		
+			include("partes/guardarPersona.php");
 			echo $cantidad;
 			break;
 		case 'BorrarPersona':

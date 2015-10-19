@@ -1,31 +1,21 @@
 function GuardarPersona()
 {
-		//alert("Guardar");
-		var id=$("#idOculto").val();
-		//alert(id);
-		var apellido=$("#apellido").val();
-		//alert(apellido);
-		var nombre=$("#nombre").val();
-		//alert(nombre);
-		var dni=$("#dni").val();
-		//alert(dni);
-		var foto=$("#foto").val();
-		//alert(foto);
+		alert("Guardar");
+
+		var formData = new FormData(document.getElementById("FormIngreso"));
+        formData.append("queHacer", "GuardarPersona");
 
 		var funcionAjax=$.ajax({
-		url:"nexo.php",
-		type:"post",
-		data:{
-			queHacer:"GuardarPersona",
-			id:id,
-			apellido:apellido,
-			nombre:nombre,
-			dni:dni,
-			foto:foto
-		}
+		url: "nexo.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+	    processData: false
 	});
 	funcionAjax.done(function(retorno){
-			//alert("done");
+			//alert(retorno);
 			Mostrar('Grilla');
 	});
 	funcionAjax.fail(function(retorno){	
@@ -74,10 +64,10 @@ function EditarPersona(idParametro)
 		$('#nombre').val(persona.nombre);
 		//alert(persona.nombre);
 		$('#dni').val(persona.dni);
-		//alert(persona.dni);	
-		$('#foto').val(persona.foto);
-		//alert(persona.foto);
+		//alert(persona.dni);
 		$('#titulo').text("MODIFICACIÓN");
+		$('#imgPerfil').attr("src","fotos/"+persona.foto);
+		//alert("fotos/"+persona.foto);
 	});
 	funcionAjax.fail(function(retorno){	
 		alert(retorno);
